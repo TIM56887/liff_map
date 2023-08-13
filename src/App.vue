@@ -24,7 +24,11 @@ export default {
   mounted() {
     liff.init({liffId: import.meta.env.VITE_LIFF_ID})
       .then(() => {
-            this.message = "Welcome,";
+
+        if (!liff.isLoggedIn()){
+          // liff.login();
+        }
+            
             
             
             liff.getProfile().then((profile) => {
@@ -35,11 +39,12 @@ export default {
                         userId : profile.userId,
                         name:profile.displayName,
                         pfpic:profile.pictureUrl,
+                        statusMessage:profile.statusMessage,
                         Latitude:position.coords.latitude,
                         Longitude:position.coords.longitude
                     }
                     store.dispatch('addUserData',this.userData)
-                    console.log(this.$store.state.user)
+                    
                 }
             )
               
@@ -66,6 +71,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
+  
 }
 </style>

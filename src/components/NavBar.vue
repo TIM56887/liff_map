@@ -10,6 +10,9 @@
             <li class="nav-item fs-5">
                 <router-link class="nav-link link1 text-secondary-emphasis" active-class="active" to="/map">Map</router-link>
             </li>
+            <li class="nav-item fs-5">
+                <router-link class="nav-link link1 text-secondary-emphasis" active-class="active" to="/friend">Friends</router-link>
+            </li>
             
         </ul>
         </div>
@@ -21,7 +24,7 @@
 <script>
 export default {
     mounted(){
-
+        
     }
 }
 </script>
